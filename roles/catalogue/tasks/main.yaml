@@ -1,0 +1,20 @@
+- name: nodjs installation
+  ansible.builtin.import_role:
+    name: common
+    task_from: nodejs
+- name: app setup
+  ansible.builtin.import_role:
+    name: common
+    task_from: app-setup
+- name: mongo app setup
+  ansible.builtin.import_role:
+    name: common
+    task_from: mongo-repo
+- name: copying config file
+  ansible.builtin.copy:
+    src: catalogue.service
+    dest: /etc/systemd/system/catalogue.service
+- name: system deamon reload
+  ansible.builtin.systemd_service:
+    daemon_reload: true
+
