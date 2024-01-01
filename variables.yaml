@@ -1,2 +1,3 @@
 MONGODB_HOST: mongodb.infome.website
 REDIS_HOST: redis.infome.website
+CATALOGUE_HOST: catalogue.infome.website
