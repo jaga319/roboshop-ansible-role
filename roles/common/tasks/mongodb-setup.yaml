@@ -14,7 +14,7 @@
 - name: get the entries count
   ansible.builtin.command: mongo --host mongodb.infome.website --quiet --eval 'db=db.getSiblingDB("user");db.users.count()'
   register: users_count
-  when: component == "users"
+  when: component == "user"
 
 - name: load DB schema
   ansible.builtin.shell: "mongo --host mongodb.infome.website < /app/schema/{{component}}.js"
@@ -23,6 +23,6 @@
 
 - name: load DB schema
   ansible.builtin.shell: "mongo --host mongodb.infome.website < /app/schema/{{component}}.js"
-  when: users_count.stdout == "0" and component == "users"
+  when: users_count.stdout == "0" and component == "user"
   ignore_errors: true
 
