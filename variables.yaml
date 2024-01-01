@@ -5,3 +5,4 @@ USER_HOST: user.infome.website
 CART_HOST: cart.infome.website
 PAYMENT_HOST: payment.infome.website
 SHIPPING_HOST: shipping.infome.website
+MYSQL_HOST: mysql.infome.website
