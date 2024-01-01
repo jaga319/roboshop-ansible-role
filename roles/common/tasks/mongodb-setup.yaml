@@ -18,11 +18,11 @@
 
 - name: load DB schema
   ansible.builtin.shell: "mongo --host mongodb.infome.website < /app/schema/{{component}}.js"
-  when: products_count.stdout == "0" and component="catalogue"
+  when: products_count.stdout == "0" and component == "catalogue"
   ignore_errors: true
 
 - name: load DB schema
   ansible.builtin.shell: "mongo --host mongodb.infome.website < /app/schema/{{component}}.js"
-  when: users_count.stdout == "0" and component="users"
+  when: users_count.stdout == "0" and component == "users"
   ignore_errors: true
 
