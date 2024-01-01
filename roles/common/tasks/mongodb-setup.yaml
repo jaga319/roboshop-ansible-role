@@ -11,17 +11,15 @@
   register: product_count
   when: component=="catalogue"
 
-- name: load DB schema
-  ansible.builtin.shell: "mongo --host mongodb.infome.website < /app/schema/{{component}}.js"
-  when: product_count.stdout == "0" and component="catalogue"
-  ignore_errors: true
-
 - name: get the entries count
   ansible.builtin.command: mongo --host mongodb.infome.website --quiet --eval 'db=db.getSiblingDB("user");db.users.count()'
   register: users_count
   when: component=="users"
-   
 
+- name: load DB schema
+  ansible.builtin.shell: "mongo --host mongodb.infome.website < /app/schema/{{component}}.js"
+  when: product_count.stdout == "0" and component="catalogue"
+  ignore_errors: true
 
 - name: load DB schema
   ansible.builtin.shell: "mongo --host mongodb.infome.website < /app/schema/{{component}}.js"
