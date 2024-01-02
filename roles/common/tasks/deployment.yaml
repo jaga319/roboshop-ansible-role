@@ -1,3 +1,4 @@
+# deployment for catalogue only 
 - name: "stop the {{component}}"
   tags:
   - deployment
