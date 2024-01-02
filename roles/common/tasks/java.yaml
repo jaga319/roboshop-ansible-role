@@ -2,7 +2,7 @@
   ansible.builtin.package:
     name: maven
     state: present
-- name: install packages
+- name: install dependencies
   ansible.builtin.command: mvn clean package
   args:
     chdir: /app
